@@ -1,3 +1,6 @@
+#   NOMES: ROBERTO ZHOU & MATHEUS DE BORTOLI SILVA
+#   GRUPO: 
+
 #   Requisitos:​
 # 1. O usuário deve entrar com o seu login e senha​ (autenticação) e ter a funcionalidade de cadastrar usuário
 #   1.1 Se o usuário estiver autenticado, continue a execução do programa
@@ -14,7 +17,7 @@
 #   1.2 Se não, “Acesso negado”
 
 #   Importação
-import csv
+import json
 
 #   Função da interface gráfica
 def interface(lista_opcoes, contador=False):
@@ -28,21 +31,33 @@ def interface(lista_opcoes, contador=False):
     print('-=' * 15)
 
 #   Função para criar arquivo CSV
-def criarAdd_csv(nome_arquivo, dados):
-    with open(nome_arquivo, 'a+', newline='') as arquivo:
-        writerCSV = csv.writer(arquivo, delimiter=',', lineterminator='\n')
-        writerCSV.writerow(dados)
+def criar_json(nome_arquivo, dados):
+    with open(nome_arquivo, 'w') as arquivo:
+        json.dump(dados, arquivo, indent=4)
 
 #   Função que para ler arquivo CSV
-def ler_csv(nome_arquivo):
-    with open(nome_arquivo, 'r', newline='') as arquivo:
-        readerCSV = csv.reader(arquivo, delimiter=',')
+def ler_json(nome_arquivo):
+    with open(nome_arquivo, 'r') as arquivo:
+        return json.load(arquivo)
+
+def criar_usuario(nome, senha):
+    return {
+        "nome": nome,
+        "senha": senha,
+    }
+
+def criar_acesso(nome):
+    return {
+        "nome": nome,
+        "acesso": {
+            "Listar arquivos": False,
+            "Criar arquivo": False,
+            "Ler arquivo": False,
+            "Excluir arquivo": False,
+            "Executar arquivo": False,
+        }
+    }
+    
 
 
-interface(['Cadastrar', 'Autenticar', 'Sair'])
-opcao = input('Opção: ')
-if(int(opcao) == 1):
-    interface(['CADASTRO'], True)
-    username = input('Usuário: ')
-    senha = input('Senha')
-    criarAdd_csv('usuarios.csv', [])
+
