@@ -68,7 +68,7 @@ while True:
     match opcao:
         #   Cadastro
         case '1':
-            usuario = input("Digite um usuário: ")
+            usuario = input("Digite um usuário: ").lower()
             senha = input("Digite uma senha: ")
 
             #   Cadastrar usuário
@@ -93,9 +93,22 @@ while True:
             
             for conta in dados_usuario:
                 if(usuario == conta['nome'] and senha == conta['senha']):
-                    interface(['Acessos'], True)
-                    interface(['Listar arquivos', 'Criar arquivo', 'Ler arquivo', 'Excluir arquivo', 'Executar arquivo', 'Sair'])
-                    opcao_acesso = input('Opção: ')
+                    while True:
+                        interface(['Acessos'], True)
+                        opcoes = ['Listar arquivos', 'Criar arquivo', 'Ler arquivo', 'Excluir arquivo', 'Executar arquivo', 'Sair']
+                        interface(opcoes)
+                        opcao_acesso = int(input('Opção: '))
 
+                        if(opcao_acesso == 6):
+                            break
 
-
+                        for acesso in dados_acessos:
+                            if(acesso['nome'] == usuario):
+                                if(acesso['acesso'][opcoes[opcao_acesso-1]]):
+                                    print("Acesso Permitido!")
+                                else:
+                                    print("Acesso Negado!")
+        case '3':
+            print('Encerrando o programa!')
+            break
+    print('Opção Inválido!')
