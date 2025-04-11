@@ -98,8 +98,10 @@ while True:
                         opcoes = ['Listar arquivos', 'Criar arquivo', 'Ler arquivo', 'Excluir arquivo', 'Executar arquivo', 'Sair']
                         interface(opcoes)
                         opcao_acesso = int(input('Opção: '))
-
-                        if(opcao_acesso == 6):
+                        if(opcao_acesso > 6 or opcao_acesso < 1):
+                            print('Opção Inválido!')
+                            continue
+                        elif(opcao_acesso == 6):
                             break
 
                         for acesso in dados_acessos:
