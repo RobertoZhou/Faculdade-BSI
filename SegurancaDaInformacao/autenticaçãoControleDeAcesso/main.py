@@ -82,5 +82,20 @@ while True:
             criar_json(arquivo_acesso, dados_acessos)
             continue
 
+        #   Autenticação
+        case '2':
+            interface(['Autenticar'], True)
+            usuario = input("Usuário: ")
+            senha = input('Senha: ')
+            
+            dados_usuario = ler_json(arquivo_usuarios)
+            dados_acessos = ler_json(arquivo_acesso)
+            
+            for conta in dados_usuario:
+                if(usuario == conta['nome'] and senha == conta['senha']):
+                    interface(['Acessos'], True)
+                    interface(['Listar arquivos', 'Criar arquivo', 'Ler arquivo', 'Excluir arquivo', 'Executar arquivo', 'Sair'])
+                    opcao_acesso = input('Opção: ')
+
 
 
