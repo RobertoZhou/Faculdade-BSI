@@ -91,6 +91,7 @@ while True:
             dados_usuario = ler_json(arquivo_usuarios)
             dados_acessos = ler_json(arquivo_acesso)
             
+            #   Autenticando usuário
             for conta in dados_usuario:
                 if(usuario == conta['nome'] and senha == conta['senha']):
                     while True:
@@ -103,7 +104,8 @@ while True:
                             continue
                         elif(opcao_acesso == 6):
                             break
-
+                        
+                        #   Verificando acesso
                         for acesso in dados_acessos:
                             if(acesso['nome'] == usuario):
                                 if(acesso['acesso'][opcoes[opcao_acesso-1]]):
