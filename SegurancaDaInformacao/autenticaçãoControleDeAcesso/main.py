@@ -58,6 +58,29 @@ def criar_acesso(nome):
         }
     }
     
+arquivo_usuarios = 'usuarios.json'
+arquivo_acesso = 'acessos.json'
+
+while True:
+    interface(['Cadastrar', 'Autenticar', 'Sair'])
+    opcao = input('Digite sua opção: ')
+
+    match opcao:
+        #   Cadastro
+        case '1':
+            usuario = input("Digite um usuário: ")
+            senha = input("Digite uma senha: ")
+
+            #   Cadastrar usuário
+            dados_usuario = ler_json(arquivo_usuarios)
+            dados_usuario.append(criar_usuario(usuario, senha))
+            criar_json(arquivo_usuarios, dados_usuario)
+            
+            #   Cadastrar acesso
+            dados_acessos = ler_json(arquivo_acesso)
+            dados_acessos.append(criar_acesso(usuario))
+            criar_json(arquivo_acesso, dados_acessos)
+            continue
 
 
 
