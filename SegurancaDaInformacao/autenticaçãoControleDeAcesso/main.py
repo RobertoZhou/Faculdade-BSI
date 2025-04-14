@@ -1,6 +1,3 @@
-#   NOMES: ROBERTO ZHOU & MATHEUS DE BORTOLI SILVA
-#   GRUPO: 
-
 #   Requisitos:​
 # 1. O usuário deve entrar com o seu login e senha​ (autenticação) e ter a funcionalidade de cadastrar usuário
 #   1.1 Se o usuário estiver autenticado, continue a execução do programa
