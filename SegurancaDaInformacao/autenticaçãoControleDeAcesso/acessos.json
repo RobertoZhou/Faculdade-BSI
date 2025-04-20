@@ -1,0 +1,22 @@
+[
+    {
+        "nome": "pedro",
+        "acesso": {
+            "Listar arquivos": false,
+            "Criar arquivo": false,
+            "Ler arquivo": false,
+            "Excluir arquivo": false,
+            "Executar arquivo": false
+        }
+    },
+    {
+        "nome": "laura",
+        "acesso": {
+            "Listar arquivos": false,
+            "Criar arquivo": false,
+            "Ler arquivo": false,
+            "Excluir arquivo": false,
+            "Executar arquivo": false
+        }
+    }
+]
