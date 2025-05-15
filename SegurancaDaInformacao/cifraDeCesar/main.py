@@ -9,11 +9,9 @@ Implementar Cifra de Cesar
 def cifra_de_cesar(mensagem, k):
     resultado = ""
     
-    # Itera sobre cada caractere da mensagem
     for i in range(len(mensagem.upper())):
         char = mensagem[i]
         
-        # Verifica se o caractere é uma letra maiúscula
         if char.isalpha():
             resultado += chr((ord(char) + k - 65) % 26 + 65)
         else:
