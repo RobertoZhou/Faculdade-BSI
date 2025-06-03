@@ -4,9 +4,9 @@ import time
 import random
 from datetime import datetime
 
-HOST = '127.0.0.1'
-PORT = 65432
-
+# Solicita IP e porta do servidor ao usuário
+HOST = input("Digite o IP do servidor: ")
+PORT = int(input("Digite a porta do servidor: "))
 sensor_id = input("Digite o ID do sensor: ")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
